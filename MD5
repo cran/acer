@@ -1,5 +1,4 @@
-efb58eb12b27ab0726a05f31e8d14d77 *DESCRIPTION
-eb9dc5deb8ccc00e4211aa377c0fd5f3 *Makefile.am
+a47853fc6ccd3da034ca039ddb3f692e *DESCRIPTION
 6377df8c22c26d419cbc6e65d5cdf64f *NAMESPACE
 36b7da97c5d66dfb13af98b7affb2fec *R/analysis.R
 7722acf5741e354a4b7ed227a0047c8a *R/calculate_epsilon.R
@@ -20,7 +19,7 @@ c815c560a2dd3f8fcfb0fe072f6f3a2f *R/print_to_screen.R
 f0983ea11492294640d458fed62fd246 *demo/00Index
 148f8fd47164379cea10f9d7f20d1ae6 *demo/acer.R
 49dac6c1c3a656c97fed8a2fae0bc0d5 *inst/doc/acer.Rnw
-be5092c667d7c66d1dc08da272b40655 *inst/doc/acer.pdf
+0885f6b66e6c7a25dc804add3a6e5a1f *inst/doc/acer.pdf
 bd7bf5ef73742ad6be392c557066bdec *inst/doc/estimateplot.png
 79d299154ef89ac63123d9062a4bff86 *inst/doc/estimates.eps
 c0f43027e697765e1e9201fb35f43363 *inst/doc/estimates.png
