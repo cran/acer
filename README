@@ -1,0 +1,5 @@
+An implementation of the ACER method in R. The ACER (Average Conditional Exceedance Rate) method is used for estimating return levels associated with long return periods. It is an alternative to fitting an extreme value distribution (the GEV and POT methods).
+
+See A. Naess and O. Gaidai: Estimation of extreme values from sampled time series, in Structural Safety 31 (2009) 325--334
+
+Thanks to Oleh Karpa at the Centre for Ships and Ocean Structures (CeSOS) in Trondheim, Norway. His MATLAB implementation of the ACER method may be found at http://folk.ntnu.no/karpa/ACER/.

@@ -1,0 +1,81 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{url}
+
+\begin{document}
+
+\title{The acer package}
+\author{Even Haug}
+\maketitle
+
+%\VignetteIndexEntry{An R Package for Univariate Extreme Value Analysis Using the ACER Method}
+%\VignetteDepens{acer}
+%\VignetteKeyword{Extreme Value Theory} 
+%\VignettePackage{acer}
+
+\section{Usage}
+The code below provides a quick demonstration of the ACER package.
+
+Let us test the package on simulated data drawn from an extreme value distribution, as described in ... We may for example assume that the simulated data approximates a series of daily maximum wind speed observations. We will generate 20 years of data consisting of 365 observations each, thus obtaining a matrix where each column corresponds to a year of observations.
+
+<<>>=
+library (acer)
+N <- 365
+M <- 20
+q <- 10
+testdata <- matrix (nrow = N, ncol = M)
+
+for (i in 1:M)
+  {
+    u <- runif (N)
+    testdata [, i] <- sqrt (abs (2 * log (- log (u) / q)))
+  }
+@ 
+
+We may now estimate and plot the ACER functions by running
+
+<<>>=
+estimates <- acer.prepare (testdata)
+@ 
+
+The estimated ACER functions will be similar to the ones plotted in figure \ref{estimates}, where we have plotted the estimated ACER functions with $k = 1, 2, \dots 6$. Each value of $k$ has its own colour. The ACER functions are more or less identical, which is unsurprising, as the simulated data are independent. We may thus choose $k = 1$ and proceed with the analysis.
+
+\begin{figure}
+  \includegraphics[]{estimates.png}
+  \label{estimates}
+  \caption{Estimates of the ACER function, with $k = 1, 2, \dots, 6$.}
+\end{figure}
+
+We may plot the estimated ACER function with $k = 1$ alone using
+
+<<>>=
+k <- 1
+acer.plot_estimate (estimates, k)
+@ 
+
+The resulting plot is shown in figure \ref{estimateplot}. From the plot, we note that the estimated ACER function seems to behave regularly from about $\eta \approx 2.5$. We therefore try to use $\eta_1 = 2.5$ as our tail marker.
+
+\begin{figure}
+  \includegraphics[]{estimateplot.png}
+  \label{estimateplot}
+  \caption{The estimated ACER function with $k = 1$, including 95\% confidence intervals.}
+\end{figure}
+
+The final analysis is performed by running
+<<>>=
+eta1 <- 2.5
+result <- acer.analysis (estimates, k, eta1)
+@ 
+
+The estimated return levels are printed to the screen, and a plot of the fitted curve together with 95\% confidence levels is generated, as in figure \ref{resultplot}.
+
+\begin{figure}
+  \includegraphics[]{resultplot.png}
+  \label{resultplot}
+  \caption{The fitted curve with 95\% confidence intervals}.
+\end{figure}
+
+\end{document}
